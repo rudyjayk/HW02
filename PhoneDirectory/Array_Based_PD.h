@@ -55,21 +55,37 @@ public:
 private:
 	class Directory_Entry
 	{
-	public:
-		Directory_Entry() {} // Default no-argument constructor 
-		Directory_Entry(std::string the_name, std::string the_number) {
-			// constructor not implemented yet 
-		}
-		std::string get_name() const {
-			return ""; // method not implemented yet 
-		}
-		std::string get_number() const {
-			return ""; // method not implemented yet 
-		}
-		void set_number(const std::string& new_number) {
-			// method not implemented yet 
-		}
-	private:
+		private:
+			std::string name; 
+			std::string number;
+		public:
+			Directory_Entry() {} // Default no-argument constructor 
+
+			//Initializes all private variables
+			//Input: A name and number of anyone,
+			//		name = the_name
+			//		number = the_number
+			Directory_Entry(std::string the_name, std::string the_number) {
+				name = the_name;
+				number = the_number;
+			}
+
+			// Getter mmethod to return the name of an entry in the phone directory
+			std::string get_name() const {
+				return name; 
+			}
+
+			//Getter method to return the number of an entry in the phone directory
+			std::string get_number() const {
+				return number; 
+			}
+
+			//Setter Method that sets a new number to an already existing entry in the phone directory
+			//Input: a string that represents a new number 
+			//		number chanegs and equals new_numbebr
+			void set_number(const std::string& new_number) { 
+				number = new_number;
+			}
 	};
 
 	// Private Functions
