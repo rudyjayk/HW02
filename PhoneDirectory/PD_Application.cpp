@@ -91,7 +91,19 @@ void do_remove_entry(Phone_Directory& the_directory) // Exercise 1.8: please com
 	cout << "Enter name: ";
 	getline(cin, name);
 	// Complete the rest of this function 
-	
+
+	//Calls remove_entry method that we implemented in excercise 1.7
+	string number = the_directory.remove_entry(name);
+
+	//If the name was removed then it reports back to user that it was removed and it shows their number one last time
+	if (number != "") {
+		
+		cout << name << " has been removed from the directory!" << endl << "Their number was " << number << endl;
+	}
+	else { //If name was not found then it tells the user that name was not in the directory
+
+		cout << name << " is not in the directory" << endl;
+	}
 }
 
 void do_save(Phone_Directory& the_directory)

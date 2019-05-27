@@ -115,12 +115,33 @@ void Phone_Directory::save()
 	*/
 string Phone_Directory::remove_entry(const string& name) // Exercise 1.7: please complete the remove_entry() method - Ed/Kent
 {
+	//Uses find method to see if the name the user is looking for is in the direcctory
+	int index = this->find(name);
+	if (index != -1) { //If name is present in directory then 
 
+		//It stores the number whcih cooresponds with the name in a string variable
+		std::string temp = the_directory[index].get_number();
+
+		//This for loop is used to overwrite the data that we wanted to be removed
+		for (int i = index; i < size - 1; i++) {
+			the_directory[i] = the_directory[i + 1];
+		}
+		
+		//This size-- is used to modify the size of the array. Since we are removing one entry then it has to subtract one from the size
+		size--;
+
+		//According to the homework problem it wants us returning the number of the name we were removing so this is it
+		return temp;
+	}
+	else { //If name is not found in directory then it returns an empty string
+
+		return "";
+	}
 	// Hint: you can use the code below to shift names down in the directory to remove the selected entry specified by "index"
 	// for (int i = index; i < size - 1; i++)
 		// the_directory[i] = the_directory[i + 1];
 
-	return "";
+	
 }
 
 // Private method implementation
